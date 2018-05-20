@@ -12,7 +12,9 @@ export default class FlightFilter extends React.Component {
 
     newState[property] = e.target.checked;
 
-    this.setState(newState)
+    this.setState(newState, () => {
+      this.props.changeFilterValues({...this.state})
+    })
   }
 
   onChange = property => e => {
